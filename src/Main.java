@@ -17,28 +17,6 @@ public class Main {
         //a. Добавить книгу (найти свободную ячейку массива и положить туда книгу). Учесть, что этот метод может быть
         // вызван любое количество раз (от 1 до 5) и каждая новая книга должна успешно укладываться в массив.
         //b.   Напечатать в консоль все книги из массива в следующем формате: “Stephen King: The Stand: 1978”
-        library[0] = warPeace;
-        library[1] = idiot;
-        addBook(new Book("Crime and punishment", dostoevsky, 1860));
-        showLibrary();
-    }
-    public static Book[] library = new Book[5];
-    public static void addBook(Book book) {
-        for (int i = 0; i < library.length; i++) {
-            if (library[i] == null) {
-                library[i] = book;
-                break;
-            }
-        }
-    }
-
-    public static void showLibrary() {
-        for (Book book : library) {
-            if (book != null) {
-                System.out.println(book.getAuthor().getName() + " " + book.getAuthor().getSurname() + ": " + book.getName() + ": " + book.getYear());
-            }
-        }
-    }
 
         //сложный уровень
         //1. Создать класс Library, который будет иметь своим полем массив из прошлого уровня.
@@ -53,4 +31,11 @@ public class Main {
         //Изменить год публикации книги по ее названию.
         //В метод подаются два параметра, а именно: название и новый год публикации.
         // Нужно найти книгу и изменить ее год публикации.
+        Library library = new Library(5);
+        library.addBook(new Book("Crime and punishment", dostoevsky, 1860));
+        library.showLibrary();
+        library.bookInfo("Crime and punishment");
+        library.yearCorrection("Crime and punishment", 1866);
+        library.yearCorrection("War and Peace", 1866);
+    }
 }
