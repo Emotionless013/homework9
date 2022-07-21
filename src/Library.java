@@ -1,5 +1,5 @@
 public class Library {
-    public static Book[] library;
+    private static Book[] library;
 
     public Library(int librarySize) {
         this.library = new Book[librarySize];
@@ -27,8 +27,7 @@ public class Library {
             if (book != null) {
                 if (bookName.equalsIgnoreCase(book.getName())) {
                     System.out.println(book.getName() + " by " + book.getAuthor().getName() + " " + book.getAuthor().getSurname() + " was published in " + book.getYear());
-                } else {
-                    System.out.println("Такой книги в билиотеке нет!");
+                    break;
                 }
             }
         }
@@ -39,12 +38,30 @@ public class Library {
             if (book != null) {
                 if (bookName.equalsIgnoreCase(book.getName())) {
                     book.setYear(correctYear);
-                    System.out.println(book.getName() + " by " + book.getAuthor().getName() + " " + book.getAuthor().getSurname() + " was published in " + book.getYear());
-                } else {
-                    System.out.println("Такой книги в билиотеке нет!");
+                    System.out.println(book.getName() + " by " + book.getAuthor().getName() + " "
+                            + book.getAuthor().getSurname() + " was published in " + book.getYear());
+                    break;
                 }
             }
         }
     }
 
+    //новый метод для домашки 10
+    //Реализуйте метод toString в классе Library, который выводит все книги библиотеки в формате:
+    //Library:
+    //книга1
+    //книга2
+    //Использовать геттеры при написании этого метода запрещено. Нужно корректно делегировать формирование строки методу toString из книги.
+
+    @Override
+    public String toString() {
+        StringBuilder  books = new StringBuilder();
+        for (Book book : library) {
+            if (book != null) {
+                books = books.append(book.toString() + System.lineSeparator());
+                System.out.print(books);
+            }
+        }
+       return "Library:" + System.lineSeparator() + books;
+    }
 }
