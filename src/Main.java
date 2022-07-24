@@ -1,15 +1,25 @@
 public class Main {
     public static void main(String[] args) {
-        //минимальный уровень
+        //минимальный уровень из домашки 9
         Author tolstoy = new Author("Lev", "Tolstoy");
         Book warPeace = new Book("War and peace", tolstoy, 1869);
         System.out.println("tolstoy.surname = " + tolstoy.getSurname());
-        System.out.println("warPeace.author = " + warPeace.author.name + " " + warPeace.author.surname);
+        System.out.println("warPeace.author = " + warPeace.getAuthor().getName() + " " + warPeace.getAuthor().getName());
         Author dostoevsky = new Author("Fedor", "Dostoevsky");
         Book idiot = new Book("Idiot", dostoevsky, 1869);
-        System.out.println("idiot.year = " + idiot.year);
+        System.out.println("idiot.year = " + idiot.getYear());
         idiot.setYear(1868);
-        System.out.println("idiot.year = " + idiot.year);
+        System.out.println("idiot.year = " + idiot.getYear());
+
+        //минимальный уровень из домашки 10
+        System.out.println(tolstoy);
+        System.out.println(idiot);
+        Author tolstoyOther = new Author("Lev", "Tolstoy");
+        System.out.println(tolstoy.equals(tolstoyOther));
+        Book warPeaceOther = new Book("War and peace", tolstoy, 1869);
+        System.out.println(warPeace.equals(warPeaceOther));
+        Book warPeaceAnother = new Book("War and peace", tolstoyOther, 1869);
+        System.out.println(warPeace.equals(warPeaceAnother));
 
         //средний уровень
         //Необходимо в классе с методом main создать массив объектов типа Book и положить туда созданные книги.
@@ -31,11 +41,16 @@ public class Main {
         //Изменить год публикации книги по ее названию.
         //В метод подаются два параметра, а именно: название и новый год публикации.
         // Нужно найти книгу и изменить ее год публикации.
-        Library library = new Library(5);
+        Library library = new Library(3);
         library.addBook(new Book("Crime and punishment", dostoevsky, 1860));
+        library.addBook(idiot);
+        library.addBook(warPeace);
         library.showLibrary();
         library.bookInfo("Crime and punishment");
         library.yearCorrection("Crime and punishment", 1866);
         library.yearCorrection("War and Peace", 1866);
+
+     //домашка 10, проверка сложного задания
+        System.out.println(library);
     }
 }
