@@ -1,6 +1,6 @@
 public class Book {
-    private String name;
-    private Author author;
+    private final String name;
+    private final Author author;
     private int year;
 
     public Book(String name, Author author, int year) {
@@ -45,6 +45,6 @@ public class Book {
 
     @Override
     public int hashCode() {
-        return this.name.hashCode() + this.author.hashCode() + this.year;
+        return this.name.hashCode() + this.author.hashCode();
     }
 }

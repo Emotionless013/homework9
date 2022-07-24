@@ -17,7 +17,7 @@ public class Library {
     public void showLibrary() {
         for (Book book : library) {
             if (book != null) {
-                System.out.println(book.getAuthor().getName() + " " + book.getAuthor().getSurname() + ": " + book.getName() + ": " + book.getYear());
+                System.out.println(book.toString());
             }
         }
     }
@@ -26,7 +26,7 @@ public class Library {
         for (Book book : library) {
             if (book != null) {
                 if (bookName.equalsIgnoreCase(book.getName())) {
-                    System.out.println(book.getName() + " by " + book.getAuthor().getName() + " " + book.getAuthor().getSurname() + " was published in " + book.getYear());
+                    System.out.println(book.toString());
                     break;
                 }
             }
@@ -38,8 +38,7 @@ public class Library {
             if (book != null) {
                 if (bookName.equalsIgnoreCase(book.getName())) {
                     book.setYear(correctYear);
-                    System.out.println(book.getName() + " by " + book.getAuthor().getName() + " "
-                            + book.getAuthor().getSurname() + " was published in " + book.getYear());
+                    System.out.println(book.toString());
                     break;
                 }
             }
