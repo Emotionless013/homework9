@@ -36,7 +36,7 @@ public class Book {
         if (!(o instanceof Book)) return false;
         if (this == o) return true;
         Book book = (Book) o;
-        if (this.name == book.name && this.author.equals(book.getAuthor()) && this.year == book.year) {
+        if (this.name == book.name && this.author.equals(book.getAuthor())) {
             return true;
         } else {
             return false;
